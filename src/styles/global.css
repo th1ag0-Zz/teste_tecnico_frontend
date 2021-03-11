@@ -1,3 +1,11 @@
+:root {
+  --white: #fff;
+  --red: #ff5043;
+  --blue: #00c9f6;
+  --blue-dark: #009dd9;
+  --title: #012130;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,9 +13,21 @@
   font-family: 'Miriam Libre';
 }
 
-body {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2%;
+}
+
+@media (max-width: 720px) {
+  :root {
+    font-size: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    font-size: 80%;
+  }
 }
