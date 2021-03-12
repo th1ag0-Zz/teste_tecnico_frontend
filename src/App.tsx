@@ -1,5 +1,5 @@
 import Header from './components/Header'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 import Api from './services/api'
 
@@ -92,7 +92,6 @@ function App() {
       <Header></Header>
 
       <div className={styles.chartContainer}>
-        {/* <ResponsiveContainer width={`${percentWidth}%`} height="70%"> */}
           <BarChart
             width={chartWidth}
             height={chartHeight}
@@ -111,9 +110,7 @@ function App() {
             <Legend />
             <Bar dataKey="price_usd" fill="#ff5043" />
           </BarChart>
-        {/* </ResponsiveContainer> */}
 
-        {/* <ResponsiveContainer width={`${percentWidth}%`} height="70%"> */}
           <BarChart
             width={chartWidth}
             height={chartHeight}
@@ -133,7 +130,6 @@ function App() {
             <Bar dataKey="pv" fill="#00c9f6" />
             <Bar dataKey="uv" fill="#ff5043" />
           </BarChart>
-        {/* </ResponsiveContainer> */}
       </div>
     </div>
   );
