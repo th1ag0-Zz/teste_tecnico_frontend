@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 function App() {
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+  // const [windowHeight, setWindowHeight] = useState(window.innerHeight);
 
   window.addEventListener('resize', function(){
     setWindowWidth(window.innerWidth);
