@@ -41,6 +41,7 @@
   height: 100vh;
   background: var(--blue-dark);
   transition: .3s;
+  z-index: 999;
 }
 
 .leftMenuHidden {
