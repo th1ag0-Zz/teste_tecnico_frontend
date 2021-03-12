@@ -20,7 +20,7 @@ export default function Header() {
 
   return (
     <div className={styles.header}>
-      <button onClick={showMenu} className={styles.menuButton}> <img src={menuIcon} /> MENU</button>
+      <button onClick={showMenu} className={styles.menuButton}> <img src={menuIcon} alt="" /> MENU</button>
       <div className={ isMenu ? styles.leftMenu : styles.leftMenuHidden}>
         <button onClick={hideMenu} className={styles.menuButtonClose}>x</button>
 
