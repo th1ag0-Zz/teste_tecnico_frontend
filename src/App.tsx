@@ -1,30 +1,15 @@
 import Header from './components/Header'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
+import Api from './services/api'
+
 import '../src/styles/global.css'
 import styles from './styles/components/App.module.css';
 import { useEffect, useState } from 'react';
 
 function App() {
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  // const [windowHeight, setWindowHeight] = useState(window.innerHeight);
-
-  window.addEventListener('resize', function(){
-    setWindowWidth(window.innerWidth);
-  });
-
-  useEffect(() => {
-    if (windowWidth < 940) {
-      setPercentWidth(90)
-    } else {
-      setPercentWidth(48)
-    }
-  }, [windowWidth])
-
-  const [percentWidth, setPercentWidth] = useState(48)
-
-  const data = [
+  const dataFake = [
     {
       name: 'Page A',
       uv: 4000,
@@ -69,21 +54,54 @@ function App() {
     },
   ];
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [chartWidth, setChartWidth] = useState(620);
+  const [chartHeight, setChartHeight] = useState(380);
+
+  window.addEventListener('resize', function(){
+    setWindowWidth(window.innerWidth);
+  });
+
+  useEffect(() => {
+    if (windowWidth < 640) {
+      setChartWidth(320)
+      setChartHeight(250)
+    } else {
+      setChartWidth(620)
+      setChartHeight(380)
+    }
+  }, [windowWidth])
+
+  const [data, setData] = useState([])
+
+
+  useEffect(() => {
+    try {
+
+      Api.get('/?start=0&limit=5').then(response => {
+        setData(response.data.data)
+      })
+      
+    } catch (error) {
+      console.log(error)
+    }
+  },[])
+
   return (
     <div>
       <Header></Header>
 
       <div className={styles.chartContainer}>
-        <ResponsiveContainer width={`${percentWidth}%`} height="70%">
+        {/* <ResponsiveContainer width={`${percentWidth}%`} height="70%"> */}
           <BarChart
-            width={500}
-            height={300}
+            width={chartWidth}
+            height={chartHeight}
             data={data}
             margin={{
               top: 5,
-              right: 30,
+              right: 20,
               left: 20,
-              bottom: 5,
+              bottom: 10,
             }}
           >
             <CartesianGrid strokeDasharray="3 3" />
@@ -91,21 +109,20 @@ function App() {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="pv" fill="#00c9f6" />
-            <Bar dataKey="uv" fill="#ff5043" />
+            <Bar dataKey="price_usd" fill="#ff5043" />
           </BarChart>
-        </ResponsiveContainer>
+        {/* </ResponsiveContainer> */}
 
-        <ResponsiveContainer width={`${percentWidth}%`} height="70%">
+        {/* <ResponsiveContainer width={`${percentWidth}%`} height="70%"> */}
           <BarChart
-            width={500}
-            height={300}
-            data={data}
+            width={chartWidth}
+            height={chartHeight}
+            data={dataFake}
             margin={{
               top: 5,
-              right: 30,
-              left: 20,
-              bottom: 5,
+              right: 25,
+              left: 25,
+              bottom: 10,
             }}
           >
             <CartesianGrid strokeDasharray="3 3" />
@@ -116,7 +133,7 @@ function App() {
             <Bar dataKey="pv" fill="#00c9f6" />
             <Bar dataKey="uv" fill="#ff5043" />
           </BarChart>
-        </ResponsiveContainer>
+        {/* </ResponsiveContainer> */}
       </div>
     </div>
   );

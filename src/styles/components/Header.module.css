@@ -10,18 +10,26 @@
 }
 
 .menuButton, .menuButtonClose {
-  width: 2rem;
-  height: 2rem;
   position: absolute;
-  top: calc(50% - 1rem);
+  top: calc(50% - .8rem);
   left: 1.4rem;
   cursor: pointer;
   border: 0;
   color: var(--white);
-  background: var(--blue-dark);
-  font-size: 1.5rem;
+  background: none;
+  font-size: 1.2rem;
   font-weight: 700;
   border-radius: 8px;
+}
+
+.menuButton {
+  display: flex;
+  align-items: center;
+}
+
+.menuButton img {
+  margin-right: .4rem;
+  width: 1.6rem;
 }
 
 .menuButtonClose {
@@ -39,7 +47,7 @@
   left: 0;
   width: 15rem;
   height: 100vh;
-  background: var(--blue-dark);
+  background: var(--title);
   transition: .3s;
   z-index: 999;
 }
