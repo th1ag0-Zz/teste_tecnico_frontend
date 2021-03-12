@@ -10,7 +10,9 @@
 - [Recharts ](http://recharts.org/)
 
 ## :wrench: Implementações
-... em construção
+- [x] Responsividade
+- [x] Consumir dados da Api
+- [ ] Filtrar dados
 
 ## :calling: Rodando o projeto
 ... em construção

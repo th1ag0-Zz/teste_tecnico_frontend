@@ -1,0 +1,25 @@
+.filterBox {
+  display: flex;
+  justify-content: space-around;
+  padding: .6rem 0;
+}
+
+.filterBox p {
+  font-size: 1.4rem;
+}
+
+.filterBox div input {
+  height: 1.8rem;
+  padding-left: .4rem;
+  border: 1px solid var(--red);
+}
+
+.filterBox div button {
+  height: 1.8rem;
+  width: 4rem;
+  background: var(--red);
+  border: 0;
+  color: var(--white);
+  font-weight: 700;
+  cursor: pointer;
+}

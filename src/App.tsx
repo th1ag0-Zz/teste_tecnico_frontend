@@ -1,58 +1,15 @@
-import Header from './components/Header'
+import { useEffect, useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+
+import Header from './components/Header'
+import Filter from './components/Filter';
 
 import Api from './services/api'
 
 import '../src/styles/global.css'
 import styles from './styles/components/App.module.css';
-import { useEffect, useState } from 'react';
 
 function App() {
-
-  const dataFake = [
-    {
-      name: 'Page A',
-      uv: 4000,
-      pv: 2400,
-      amt: 2400,
-    },
-    {
-      name: 'Page B',
-      uv: 3000,
-      pv: 1398,
-      amt: 2210,
-    },
-    {
-      name: 'Page C',
-      uv: 2000,
-      pv: 9800,
-      amt: 2290,
-    },
-    {
-      name: 'Page D',
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
-    },
-    {
-      name: 'Page E',
-      uv: 1890,
-      pv: 4800,
-      amt: 2181,
-    },
-    {
-      name: 'Page F',
-      uv: 2390,
-      pv: 3800,
-      amt: 2500,
-    },
-    {
-      name: 'Page G',
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
-    },
-  ];
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [chartWidth, setChartWidth] = useState(620);
@@ -72,14 +29,28 @@ function App() {
     }
   }, [windowWidth])
 
-  const [data, setData] = useState([])
+  const [dataCoins, setDataCoins] = useState([])
+  const [dataMarkets, setDataMarkets] = useState([])
 
+  // const [idCoin, setIdCoin] = useState(90)
 
   useEffect(() => {
     try {
 
-      Api.get('/?start=0&limit=5').then(response => {
-        setData(response.data.data)
+      Api.get('tickers/?start=0&limit=5').then(response => {
+        setDataCoins(response.data.data)
+      })
+      
+    } catch (error) {
+      console.log(error)
+    }
+  },[])
+
+  useEffect(() => {
+    try {
+
+      Api.get(`coin/markets/?id=${90}`).then(response => {
+        setDataMarkets(response.data)
       })
       
     } catch (error) {
@@ -92,44 +63,52 @@ function App() {
       <Header></Header>
 
       <div className={styles.chartContainer}>
-          <BarChart
-            width={chartWidth}
-            height={chartHeight}
-            data={data}
-            margin={{
-              top: 5,
-              right: 20,
-              left: 20,
-              bottom: 10,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey="price_usd" fill="#ff5043" />
-          </BarChart>
 
-          <BarChart
-            width={chartWidth}
-            height={chartHeight}
-            data={dataFake}
-            margin={{
-              top: 5,
-              right: 25,
-              left: 25,
-              bottom: 10,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey="pv" fill="#00c9f6" />
-            <Bar dataKey="uv" fill="#ff5043" />
-          </BarChart>
+          <div>
+            <h1 className={styles.title}>Top 5 Criptomoedas <br/> (por valor)</h1>
+            <BarChart
+              width={chartWidth}
+              height={chartHeight}
+              data={dataCoins}
+              margin={{
+                top: 10,
+                right: 20,
+                left: 20,
+                bottom: 10,
+              }}
+            >
+              <CartesianGrid strokeDasharray="2 2" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Bar name="Preço (USD)" dataKey="price_usd" fill="#009dd9" />
+            </BarChart>
+
+          </div>
+            
+          <div>
+            <h1 className={styles.title}>Mercados para Criptomoedas</h1>
+            <Filter />
+            <BarChart
+              width={chartWidth}
+              height={chartHeight}
+              data={dataMarkets}
+              margin={{
+                top: 10,
+                right: 25,
+                left: 25,
+                bottom: 10,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Bar name="Preço (USD)" dataKey="price_usd" fill="#009dd9" />
+            </BarChart>
+          </div>
       </div>
     </div>
   );
