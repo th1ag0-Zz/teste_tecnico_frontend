@@ -11,7 +11,7 @@
 
 .menuButton, .menuButtonClose {
   position: absolute;
-  top: calc(50% - .8rem);
+  top: calc(50% - .9rem);
   left: 1.4rem;
   cursor: pointer;
   border: 0;
@@ -19,12 +19,13 @@
   background: none;
   font-size: 1.2rem;
   font-weight: 700;
-  border-radius: 8px;
 }
 
 .menuButton {
   display: flex;
   align-items: center;
+  line-height: 0;
+  padding: .1rem;
 }
 
 .menuButton img {
@@ -33,8 +34,13 @@
 }
 
 .menuButtonClose {
-  top: 1rem;
+  top: 1.3rem;
   left: 80%;
+  line-height: 0;
+}
+
+.menuButtonClose img {
+  width: 1.8rem;
 }
 
 .logo {

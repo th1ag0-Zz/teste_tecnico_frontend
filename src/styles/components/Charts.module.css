@@ -10,6 +10,13 @@
   padding: 2rem 0;
 }
 
+.chartContainer > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
 .title {
   text-align: center;
   color: var(--title);

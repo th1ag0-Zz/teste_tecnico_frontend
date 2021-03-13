@@ -5,6 +5,7 @@ import MenuItems from '../components/MenuItems'
 
 import logoWhite from '../assets/imgs/logo-white.png'
 import menuIcon from '../assets/icons/menu.svg'
+import closeIcon from '../assets/icons/close.svg'
 
 export default function Header() {
 
@@ -22,7 +23,7 @@ export default function Header() {
     <div className={styles.header}>
       <button onClick={showMenu} className={styles.menuButton}> <img src={menuIcon} alt="" /> MENU</button>
       <div className={ isMenu ? styles.leftMenu : styles.leftMenuHidden}>
-        <button onClick={hideMenu} className={styles.menuButtonClose}>x</button>
+        <button onClick={hideMenu} className={styles.menuButtonClose}> <img src={closeIcon} alt=""/> </button>
 
         <MenuItems />
         
