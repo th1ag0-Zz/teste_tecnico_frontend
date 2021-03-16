@@ -2,13 +2,17 @@ import { useEffect, useState, useContext } from 'react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 import Filter from '../components/Filter';
-import { FilterContext } from '../contexts/FilterContext'
+import { DataContext } from '../contexts/DataContext'
 
 import styles from '../styles/components/Charts.module.css';
 
 export default function Charts() {
 
-  const { dataCoins, dataMarkets } = useContext(FilterContext)
+  const { dataBrazil } = useContext(DataContext)
+  const arrayDataBrazil = [dataBrazil]
+
+  const { dataUserSelect } = useContext(DataContext)
+  const arrayDataUserSelect = [dataUserSelect]
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [chartWidth, setChartWidth] = useState(620);
@@ -34,11 +38,11 @@ export default function Charts() {
   return (
     <div className={styles.chartContainer}>
         <div>
-          <h1 className={styles.title}>Top 5 Criptomoedas <br/> (por ranking)</h1>
+          <h1 className={styles.title}>Estatísticas - Covid19 <br/> (Brasil)</h1>
           <BarChart
             width={chartWidth}
             height={chartHeight}
-            data={dataCoins}
+            data={arrayDataBrazil}
             margin={{
               top: 10,
               right: 20,
@@ -51,17 +55,19 @@ export default function Charts() {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar name="Preço (USD)" dataKey="price_usd" fill="#009dd9" />
+            <Bar name="Casos confirmados" dataKey="confirmed" fill="#ff5043" />
+            <Bar name="Recuperados" dataKey="recovered" fill="#009dd9" />
+            <Bar name="Mortos" dataKey="deaths" fill="#012130" />
           </BarChart>
         </div>
           
         <div>
-          <h1 className={styles.title}>Mercados para Criptomoedas</h1>
+          <h1 className={styles.title}>Pesquisar por País</h1>
           <Filter />
           <BarChart
             width={chartWidth}
             height={chartHeight}
-            data={dataMarkets}
+            data={arrayDataUserSelect}
             margin={{
               top: 10,
               right: 20,
@@ -74,7 +80,9 @@ export default function Charts() {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar name="Preço (USD)" dataKey="price_usd" fill="#009dd9" />
+            <Bar name="Casos confirmados" dataKey="confirmed" fill="#ff5043" />
+            <Bar name="Recuperados" dataKey="recovered" fill="#009dd9" />
+            <Bar name="Mortos" dataKey="deaths" fill="#012130" />
           </BarChart>
         </div>
       </div>

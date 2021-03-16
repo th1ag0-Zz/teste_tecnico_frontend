@@ -1,6 +1,6 @@
 import Header from './components/Header'
 
-import { FilterProvider } from './contexts/FilterContext'
+import { DataProvider } from './contexts/DataContext';
 
 import '../src/styles/global.css'
 import Charts from './components/Chats';
@@ -11,9 +11,9 @@ function App() {
     <div>
       <Header></Header>
 
-      <FilterProvider>
+      <DataProvider>
         <Charts />
-      </FilterProvider>
+      </DataProvider>
     </div>
   );
 }

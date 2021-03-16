@@ -10,6 +10,7 @@
 }
 
 .filterBox div input {
+  width: 11rem;
   height: 1.8rem;
   padding-left: .4rem;
   border: 1px solid var(--red);
