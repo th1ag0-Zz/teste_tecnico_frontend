@@ -1,17 +1,15 @@
 import { useEffect, useState, useContext } from 'react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { DataContext } from '../contexts/DataContext'
 
 import Filter from '../components/Filter';
-import { DataContext } from '../contexts/DataContext'
 
 import styles from '../styles/components/Charts.module.css';
 
 export default function Charts() {
 
-  const { dataBrazil } = useContext(DataContext)
+  const { dataBrazil, dataUserSelect } = useContext(DataContext)
   const arrayDataBrazil = [dataBrazil]
-
-  const { dataUserSelect } = useContext(DataContext)
   const arrayDataUserSelect = [dataUserSelect]
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -84,6 +82,7 @@ export default function Charts() {
             <Bar name="Recuperados" dataKey="recovered" fill="#009dd9" />
             <Bar name="Mortos" dataKey="deaths" fill="#012130" />
           </BarChart>
+          
         </div>
       </div>
   )
