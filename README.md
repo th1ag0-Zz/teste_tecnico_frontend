@@ -8,6 +8,10 @@ O projeto consome uma api dos dados da Covid-19 em diversos países (link [aqui]
 
 Nele é possível ver as estatísticas da doença no Brasil e no pais que você queira comparar, basta pesquisar pelo nome (em inglês) no campo de pesquisa.
 
+<p align="center">
+  <img src="./.github/home.gif">
+</p>
+
 ## :cloud: Tecnologias usadas
 - [Yarn](https://yarnpkg.com/) (gerenciador de pacotes)
 - [ReactJs](https://pt-br.reactjs.org/)
