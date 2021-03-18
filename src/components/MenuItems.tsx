@@ -7,9 +7,9 @@ export default function MenuItems() {
     <div className={styles.menu}>
       <ul className={styles.menuList}>
         <li className={styles.logo}><a href="https://www.mediarsolutions.com/"> <img src={logoWhite} alt=""/> </a></li>
-        <li> <a href="mediarsolutions.com/sobre/"> Sobre </a> </li>
-        <li> <a href="mediarsolutions.com/solucoes/"> Soluções </a> </li>
-        <li> <a href="mediarsolutions.com/contato/"> Contato </a> </li>
+        <li> <a href="https://www.mediarsolutions.com/sobre/"> Sobre </a> </li>
+        <li> <a href="https://www.mediarsolutions.com/solucoes/"> Soluções </a> </li>
+        <li> <a href="https://www.mediarsolutions.com/contato/"> Contato </a> </li>
       </ul>
 
       <ul className={styles.autor}>
