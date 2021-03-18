@@ -1,8 +1,12 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { DataContext } from '../contexts/DataContext';
 import styles from '../styles/components/Filter.module.css';
 
-export default function Filter() {
+interface Props {
+  active: boolean;
+}
+
+const Filter: React.FC<Props> = ({ active }) => {
 
   const { filter } = useContext(DataContext)
 
@@ -14,8 +18,10 @@ export default function Filter() {
     filter(valueSearch)
   }
 
+  const [isActive] = useState(active)
+
   return (
-    <div className={styles.filterBox}>
+    <div className={ isActive ? `${styles.filterBox}` : `${styles.filterBoxNone}` }>
       <p>{countrySelected}</p>
       <div>
         <input
@@ -27,4 +33,7 @@ export default function Filter() {
       </div>
     </div>
   )
+  
 }
+
+export default Filter;

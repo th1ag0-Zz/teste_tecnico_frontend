@@ -1,0 +1,26 @@
+.chartContainer {
+  width: auto;
+  margin: 0 auto;
+  height: calc(100vh - 4.2rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 2%;
+}
+
+
+
+@media (max-width: 1300px) {
+  .chartContainer {
+    flex-direction: column;
+    padding-top: 1.5rem;
+    justify-content: space-between;
+  }
+}
+
+@media (min-height: 980px) and (max-width: 940px) {
+  .chartContainer {
+    padding-top: 2rem;
+    justify-content: start;
+  }
+}

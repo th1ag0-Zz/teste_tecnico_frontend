@@ -1,3 +1,7 @@
+.filterBoxNone {
+  display: none;
+}
+
 .filterBox {
   display: flex;
   justify-content: space-evenly;
