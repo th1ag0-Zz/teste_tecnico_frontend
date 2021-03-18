@@ -1,11 +1,12 @@
 
 ![](https://mediarsolutions.com/wp-content/uploads/2021/02/teste_tecnico_front.png)
 
-<h3 align="center">Você pode acessar o site </br> através deste <a href="https://teste-mediar-git-master-th1ag0-zz.vercel.app/">link</a> </h3>
+<h3 align="center">Você pode acessar o projeto </br> através deste <a href="https://teste-mediar.vercel.app/">link</a> </h3>
 
 ## :grin: Sobre
-... em construção
+O projeto consome uma api dos dados da Covid-19 em diversos países (link [aqui](https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/)).
 
+Nele é possível ver as estatísticas da doença no Brasil e no pais que você queira comparar, basta pesquisar pelo nome (em inglês) no campo de pesquisa.
 
 ## :cloud: Tecnologias usadas
 - [Yarn](https://yarnpkg.com/) (gerenciador de pacotes)
@@ -15,8 +16,9 @@
 
 ## :wrench: Implementações
 - [x] Responsividade
+- [x] Menu interativo
 - [x] Consumir dados da Api
-- [x] Filtrar dados
+- [x] Filtro de dados por país
 
 ## :calling: Rodando o projeto
 
@@ -42,3 +44,11 @@ Caso não aconteça nada, basta acesar:
 ``` bash
 http://localhost:3000
 ```
+
+# :closed_book: Autor
+Feito por [Thiago Silva](https://github.com/th1ag0-Zz). :smile:
+#### :octocat: Github: https://github.com/th1ag0-Zz
+#### :link: LinkedIn: https://www.linkedin.com/in/thiago-furtado-silva/
+#### :camera: Instagram: https://www.instagram.com/thiag0_dev/
+#### :mailbox: Gmail: thiagof89.tf@gmail.com
+#### :rocket: Rocketseat: https://app.rocketseat.com.br/me/thiago-furtado-1575175681
