@@ -8,8 +8,6 @@
   padding: 0 2%;
 }
 
-
-
 @media (max-width: 1300px) {
   .chartContainer {
     flex-direction: column;
